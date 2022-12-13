@@ -1,0 +1,72 @@
+name: device_shop_admin
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.4
+  fluttertoast: ^8.1.1
+  carousel_slider: ^4.1.1
+  file_picker: ^5.0.1
+  image_picker: ^0.8.6
+  email_validator: '^2.1.16'
+  flutter_svg: ^1.1.1+1
+  lottie: ^1.4.3
+  modal_bottom_sheet: ^2.0.1
+  easy_localization: ^3.0.1
+  url_launcher: ^6.1.4
+  flutter_linkify: ^5.0.2
+  intl: ^0.17.0
+
+  #Firebase
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.1.5
+  firebase_storage: ^11.0.6
+  cloud_firestore: ^4.1.0
+  firebase_analytics: ^10.0.6
+  firebase_in_app_messaging: ^0.7.0+7
+  firebase_messaging: ^14.1.4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/lottie/
+    - assets/images/
+    - assets/svg/
+    - assets/translations/
+
+
+  fonts:
+    - family: SFUIDisplay
+      fonts:
+        - asset: assets/fonts/SFProDisplay-Light.ttf
+          weight: 300
+        - asset: assets/fonts/SFProDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SFProDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/SFProDisplay-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/SFProDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SFProDisplay-Black.ttf
+          weight: 900
