@@ -7,7 +7,6 @@ class AuthViewModel {
   AuthViewModel({required AuthRepository authRepository})
       : _authRepository = authRepository;
 
-
   signIn({
     required String password,
     required String email,

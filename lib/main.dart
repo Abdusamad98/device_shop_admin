@@ -4,6 +4,7 @@ import 'package:device_shop_admin/data/repositories/categories_repository.dart';
 import 'package:device_shop_admin/data/repositories/orders_repository.dart';
 import 'package:device_shop_admin/data/repositories/product_repository.dart';
 import 'package:device_shop_admin/data/repositories/profile_repository.dart';
+import 'package:device_shop_admin/data/repositories/users_repository.dart';
 import 'package:device_shop_admin/ui/admin/admin_screen.dart';
 import 'package:device_shop_admin/ui/auth/auth_page.dart';
 import 'package:device_shop_admin/view_models/auth_view_model.dart';
@@ -12,6 +13,7 @@ import 'package:device_shop_admin/view_models/orders_view_model.dart';
 import 'package:device_shop_admin/view_models/products_view_model.dart';
 import 'package:device_shop_admin/view_models/profile_view_model.dart';
 import 'package:device_shop_admin/view_models/tab_view_model.dart';
+import 'package:device_shop_admin/view_models/users_view_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -41,6 +43,13 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) => CategoriesViewModel(
             categoryRepository: CategoryRepository(
+              firebaseFirestore: fireStore,
+            ),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UsersViewModel(
+            usersRepository: UsersRepository(
               firebaseFirestore: fireStore,
             ),
           ),

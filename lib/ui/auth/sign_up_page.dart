@@ -124,6 +124,8 @@ class _SignUpPageState extends State<SignUpPage> {
       );
       Provider.of<ProfileViewModel>(context,listen: false).addUser(
         UserModel(
+          fcmToken: "",
+          docId: "",
           age: 0,
           userId: FirebaseAuth.instance.currentUser!.uid,
           fullName: "",

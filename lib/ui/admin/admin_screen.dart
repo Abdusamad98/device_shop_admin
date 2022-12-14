@@ -1,5 +1,6 @@
 import 'package:device_shop_admin/ui/admin/category/all_categories_screen.dart';
 import 'package:device_shop_admin/ui/admin/products/all_products_screen.dart';
+import 'package:device_shop_admin/ui/admin/users/all_users_screen.dart';
 import 'package:device_shop_admin/ui/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -82,6 +83,16 @@ class _AdminScreenState extends State<AdminScreen> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => AllCategoriesScreen()));
+            },
+          ),
+
+          ListTile(
+            title: Text("Users"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AllUsersScreen()));
             },
           ),
         ],
