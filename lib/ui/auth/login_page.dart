@@ -1,7 +1,10 @@
+import 'package:device_shop_admin/data/models/user_model.dart';
 import 'package:device_shop_admin/utils/color.dart';
 import 'package:device_shop_admin/utils/my_utils.dart';
 import 'package:device_shop_admin/utils/style.dart';
 import 'package:device_shop_admin/view_models/auth_view_model.dart';
+import 'package:device_shop_admin/view_models/profile_view_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -79,6 +82,33 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+            IconButton(
+                onPressed: () async {
+                  UserCredential? userCredential =
+                      await Provider.of<AuthViewModel>(
+                    context,
+                    listen: false,
+                  ).signInWithGoogle();
+                  if (userCredential != null) {
+                    print("PHOTO URL:${userCredential.user!.photoURL}");
+                    Provider.of<ProfileViewModel>(context,listen: false).addUser(
+                      UserModel(
+                        fcmToken: "",
+                        docId: "",
+                        age: 0,
+                        userId: FirebaseAuth.instance.currentUser!.uid,
+                        fullName: userCredential.user!.displayName!,
+                        email: userCredential.user!.email!,
+                        createdAt: DateTime.now().toString(),
+                        imageUrl: userCredential.user!.photoURL!,
+                      ),
+                    );
+                  }
+                },
+                icon: const Icon(
+                  Icons.golf_course_outlined,
+                  color: Colors.white,
+                ))
           ],
         ),
       ),
@@ -88,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
   //" Hello World  "
 
   Future<void> signIn() async {
-    Provider.of<AuthViewModel>(context,listen: false).signIn(
+    Provider.of<AuthViewModel>(context, listen: false).signIn(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );

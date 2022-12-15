@@ -17,7 +17,10 @@ class AuthViewModel {
     required String password,
     required String email,
   }) =>
-      _authRepository.signUp(password: password, email: email);
+      _authRepository .signUp(password: password, email: email);
 
   Stream<User?> checkAuthState() => _authRepository.authState();
+  //Google sign in
+  Future<UserCredential?> signInWithGoogle() => _authRepository.signInWithGoogle();
+
 }

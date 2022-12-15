@@ -4,6 +4,7 @@ import 'package:device_shop_admin/ui/admin/users/all_users_screen.dart';
 import 'package:device_shop_admin/ui/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key}) : super(key: key);
@@ -85,16 +86,18 @@ class _AdminScreenState extends State<AdminScreen> {
                       builder: (context) => AllCategoriesScreen()));
             },
           ),
-
           ListTile(
             title: Text("Users"),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AllUsersScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AllUsersScreen()));
             },
           ),
+          ElevatedButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+              },
+              child: Text("SignOut")),
         ],
       ),
     );
