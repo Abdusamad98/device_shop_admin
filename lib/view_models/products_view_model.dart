@@ -27,6 +27,7 @@ class ProductViewModel extends ChangeNotifier {
     });
   }
 
+
   addProduct(ProductModel productModel) =>
       productRepository.addProduct(productModel: productModel);
 
