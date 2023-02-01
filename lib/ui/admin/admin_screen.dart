@@ -16,6 +16,7 @@ class AdminScreen extends StatefulWidget {
 class _AdminScreenState extends State<AdminScreen> {
   _printFCMTOKEN() async {
     String? token = await FirebaseMessaging.instance.getToken();
+    await FirebaseMessaging.instance.subscribeToTopic("news");
     print("FCM TOKEN:$token");
   }
 
